@@ -13,7 +13,7 @@ The Approov integration is available via the [`Swift Package Manager`](https://d
 
 ![Add Package Dependency](readme-images/AddPackage.png)
 
-Enter the repository`https://github.com/approov/approov-service-urlsession.git` into the search box. You will then have to select the relevant version you wish to use. To do so, select the `Exact Version` option and enter a specific option you require or use the latest available `tag`, which should be selected for you.
+Enter the repository`https://github.com/approov/approov-service-urlsession.git` into the search box. You will then have to select the `watchOS` branch of the repository since it is the platform specific branch.
 
 Once you click `Add Package` the last step will confirm the package product and target selection. The `approov-service-urlsession` is actually an open source wrapper layer that allows you to easily use Approov with `URLSession`. This has a further dependency to the closed source [Approov SDK](https://github.com/approov/approov-watchos-sdk).
 
