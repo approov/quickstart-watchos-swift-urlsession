@@ -45,13 +45,13 @@ The Approov integration is available via the [`Swift Package Manager`](https://d
 
 ![Add Packag Dependency](readme-images/AddPackage.png)
 
-Enter the repository`https://github.com/approov/approov-service-urlsession.git` into the search box. You will then have to select the relevant version you wish to use. To do so, select the `Exact Version`, after which the latest `tag` from the selected repository should be selected. If you would like to use an earlier version, just replace the latest one.
+Enter the repository`https://github.com/approov/approov-service-urlsession.git` into the search box. This repository contains the service files for both `iOS` and `watchOS` so we must select the apropriate branch. This is the `watchOS` branch, so ensure the `Dependency Rule` is set to `Branch` and the field is set to `watchOS`.
 
 Once you click `Add Package` the last step will confirm the package product and target selection:
 
 ![Target Selection](readme-images/target-selection.png)
 
- The `approov-service-urlsession` is actually an open source wrapper layer that allows you to easily use Approov with `URLSession`. This has a further dependency to the closed source [Approov SDK](https://github.com/approov/approov-ios-sdk).
+ The `approov-service-urlsession` is actually an open source wrapper layer that allows you to easily use Approov with `URLSession`. This has a further dependency to the closed source [Approov SDK](https://github.com/approov/approov-watchos-sdk).
 
 ## ENSURE THE SHAPES API IS ADDED
 
@@ -65,13 +65,14 @@ Tokens for this domain will be automatically signed with the specific secret for
 
 ## MODIFY THE APP TO USE APPROOV
 
-Before using Approov you need to import the `ApproovURLSession` Service. In the `ViewController.swift` source file import the service module:
+Before using Approov you need to import the `ApproovURLSession` Service. In the `ContentView.swift` source file find the following line and uncomment it:
 
 ```swift
+//*** UNCOMMENT THE LINE BELOW FOR APPROOV
 import ApproovURLSession
 ```
 
-Find the following line in `ViewController.swift` source file and uncomment it (commenting the previous definition):
+Find the following line in `ContentView.swift` source file and uncomment it (commenting the previous definition):
 
 ```swift
 //*** UNCOMMENT THE LINE BELOW FOR APPROOV
@@ -81,6 +82,7 @@ var defaultSession = ApproovURLSession(configuration: .default)
 Now locate and uncomment the line inside the `viewDidLoad` function that initializes the `ApproovService` and remember to add the `config` parameter. The `approov-service-urlsession` needs a configuration string to identify the account associated with the app. You will have received this in your Approov onboarding email (it will be something like `#123456#K/XPlLtfcwnWkzv99Wj5VmAxo4CrU267J1KlQyoz8Qo=`):
 
 ```swift
+//*** UNCOMMENT THE LINE BELOW FOR APPROOV
 try! ApproovService.initialize(config: "<enter-your-config-string-here>")
 ```
 
@@ -92,8 +94,6 @@ Lastly, make sure we are using the Approov protected endpoint for the shapes ser
 //*** UNCOMMENT THE LINE BELOW TO USE APPROOV API PROTECTION
 let currentShapesEndpoint = "v3"
 ```
-
-> Note that from Xcode 14, the minimum deployment target is iOS 11.0 and you will need to update to this in the general settings to allow compilation.
 
 ## ADD YOUR SIGNING CERTIFICATE TO APPROOV
 
@@ -115,7 +115,7 @@ This ensures that any app signed with the certificate will be recognized by Appr
 
 If it is not possible to download the correct certificate from the portal then it is also possible to [add app signing certificates from the app](https://approov.io/docs/latest/approov-usage-documentation/#adding-apple-app-signing-certificates-from-app).
 
-> **IMPORTANT:** Apps built to run on the iOS simulator are not code signed and thus auto-registration does not work for them. In this case you can consider [forcing a device ID to pass](https://approov.io/docs/latest/approov-usage-documentation/#forcing-a-device-id-to-pass) to get a valid attestation.
+> **IMPORTANT:** Apps built to run on the watchOS simulator are not code signed and thus auto-registration does not work for them. In this case you can consider [forcing a device ID to pass](https://approov.io/docs/latest/approov-usage-documentation/#forcing-a-device-id-to-pass) to get a valid attestation.
 
 ## RUNNING THE SHAPES APP WITH APPROOV
 
