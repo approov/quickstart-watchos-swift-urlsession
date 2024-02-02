@@ -11,7 +11,7 @@ import SwiftUI
 struct ShapesApp_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(mImage: "approov", mText: "")
         }
     }
 }
