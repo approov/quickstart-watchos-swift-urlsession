@@ -66,6 +66,7 @@ struct ContentView: View {
             }
         }
         .padding()
+        .background(LinearGradient(gradient: Gradient(colors: [Color.cyan.opacity(0.9), Color.cyan.opacity(0.5)]), startPoint: .top, endPoint: .bottom)) // Red gradient background for HStack
     }
     
     // Update background and message
