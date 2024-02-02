@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+//*** UNCOMMENT THE LINE BELOW FOR APPROOV
+//import ApproovURLSession
 
 //*** COMMENT THE LINE BELOW IF USING APPROOV
 var defaultSession = URLSession(configuration: .default)
