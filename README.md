@@ -1,5 +1,8 @@
 # Approov Quickstart: watchOS Swift URLSession
 
+⚠️ Warning: This package is obsolete. The replacement quickstart with support for both iOS and watchOS is in [https://github.com/approov/approov-ios-sdk](https://github.com/approov/quickstart-ios-swift-urlsession)
+
+
 This quickstart is written specifically for native watchOS apps that are written in Swift and making API calls using [`URLSession`](https://developer.apple.com/documentation/foundation/urlsession) that you wish to protect with Approov. If this is not your situation then check if there is a more relevant quickstart guide available.
 
 This page provides all the steps for integrating Approov into your app. Additionally, a step-by-step tutorial guide using our [Shapes App Example](https://github.com/approov/quickstart-watchos-swift-urlsession/blob/master/SHAPES-EXAMPLE.md) is also available.
